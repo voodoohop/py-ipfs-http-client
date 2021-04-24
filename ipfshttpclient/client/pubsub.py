@@ -187,5 +187,4 @@ class Section(base.SectionBase):
 				Generator wrapped in a context manager that maintains a
 				connection stream to the given topic.
 		"""
-		args = (topic, discover)
-		return SubChannel(self._client.request('/pubsub/sub', args, decoder='json'))
+		return SubChannel(self._client.request('/pubsub/sub', topic, stream=True, decoder='json'))
